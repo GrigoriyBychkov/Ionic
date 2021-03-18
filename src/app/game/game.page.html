@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>
+      <div class="stats">
+        <div>
+          <div>Level</div>
+          <ion-badge color="primary">{{state.userLevel}}</ion-badge>
+        </div>
+        <div>
+          <div>Score</div>
+          <ion-badge color="success">{{state.score}}</ion-badge>
+        </div>
+        <div>
+          <div>Record</div>
+          <ion-badge color="warning">{{state.maxScore}}</ion-badge>
+        </div>
+        <div>
+          <div>Plays</div>
+          <ion-badge color="tertiary">{{state.playCount}}</ion-badge>
+        </div>
+      </div>
+
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <ion-list  [sortablejs]="state.userOrder" [sortablejsOptions]="sortablejsOptions">
+    <ion-item *ngFor="let sound of state.userOrder" lines="none" color="light" class="item">
+
+      <ion-label class="note_label" (click)="playSound(sound)">{{sound}}</ion-label>
+      <div class="piano_roll">
+        <div *ngFor="let note of sounds" class="key" [ngClass]="note" [class.active]="note == sound"></div>
+      </div>
+      <ion-icon name="pause-outline" class="item_icon"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="playAudio()" expand="block">
+      <ion-icon name="play-outline"></ion-icon>
+      Play
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

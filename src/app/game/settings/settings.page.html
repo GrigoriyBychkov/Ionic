@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Settings</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+   <ion-button color="danger" (click)="resetLocalStorage()" expand="block">Reset</ion-button>
+    <ion-toolbar>
+        <ion-title>Difficulty</ion-title>
+    </ion-toolbar>
+
+    <ion-row>
+        <ion-col>
+            <ion-button [color]="state.userDifficulty == 3 ? 'success' : ''" (click)="setLevelEasy()" expand="block">Easy</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button [color]="state.userDifficulty == 2 ? 'success' : ''" (click)="setLevelMedium()" expand="block">Medium</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button [color]="state.userDifficulty == 1 ? 'success' : ''" (click)="setLevelHard()" expand="block">Hard</ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-toolbar>
+        <ion-title>Instrument</ion-title>
+    </ion-toolbar>
+
+    <ion-row>
+        <ion-col>
+            <ion-button [color]="state.instrument == 'GrandPiano' ? 'success' : ''" (click)="setInstrumentPiano()" expand="block">Piano</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button [color]="state.instrument == 'AcousticGuitar' ? 'success' : ''" (click)="setInstrumentGuitar()" expand="block">Guitar</ion-button>
+        </ion-col>
+    </ion-row>
+
+    <ion-toolbar>
+        <ion-title>Octave</ion-title>
+    </ion-toolbar>
+
+    <ion-row>
+        <ion-col>
+            <ion-button [color]="state.octave == 2 ? 'success' : ''" (click)="setOctave2()" expand="block">2 Octave</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button [color]="state.octave == 3 ? 'success' : ''" (click)="setOctave3()" expand="block">3 Octave</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

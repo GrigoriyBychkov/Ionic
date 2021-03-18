@@ -1,0 +1,58 @@
+.piano_roll{
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
+  padding-bottom: 5px;
+  //border: 1px solid seagreen;
+  //width:100%;
+  align-items: flex-start;
+  .key{
+    border: 1px solid gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    flex: 6 6 auto;
+    background: white;
+    &:nth-child(2), &:nth-child(4), &:nth-child(7), &:nth-child(9), &:nth-child(11) {
+      background: black;
+      flex: 3 3 auto;
+      height: 80%;
+      margin: 0px -11px;
+      z-index: 1;
+      &.active {
+        background: darkblue;
+      }
+
+    }
+    &.active{
+      background: lightblue;
+    }
+  }
+}
+
+.note_label {
+  flex:0 0 45px;
+}
+.item{
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #00000030;
+  .item_icon{
+    color: gray;
+    z-index: 3;
+  }
+}
+
+.toolbar {
+  --background: rgba(9, 9, 121, 0.07);
+}
+
+.stats {
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
